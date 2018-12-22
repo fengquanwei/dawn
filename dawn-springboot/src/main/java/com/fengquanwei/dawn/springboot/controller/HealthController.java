@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/health")
 public class HealthController {
+    @Value("${spring.application.name}")
+    private String applicationName;
     @Value("${key.name}")
     private String name;
     @Value("${key.email}")
@@ -25,6 +27,6 @@ public class HealthController {
 
     @RequestMapping("/who")
     public String who() {
-        return name + "/" + email;
+        return "【" + applicationName + "】" + name + "/" + email;
     }
 }
