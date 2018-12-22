@@ -1,5 +1,6 @@
 package com.fengquanwei.dawn.springboot.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/health")
 public class HealthController {
+    @Value("${key.name}")
+    private String name;
+    @Value("${key.email}")
+    private String email;
+
     @RequestMapping("/check")
     public String check() {
         return "success";
+    }
+
+    @RequestMapping("/who")
+    public String who() {
+        return name + "/" + email;
     }
 }
