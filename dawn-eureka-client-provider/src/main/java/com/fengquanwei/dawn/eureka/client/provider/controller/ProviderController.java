@@ -7,18 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * HelloController
+ * 服务提供者
  *
  * @author fengquanwei
  * @create 2018/12/23 12:07
  **/
 @RestController
-@RequestMapping("/hello")
-public class HelloController {
+public class ProviderController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping("/world")
+    @RequestMapping("/hello")
     public String world() {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
 
