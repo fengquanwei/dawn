@@ -7,6 +7,12 @@
     <groupId>com.fengquanwei</groupId>
     <artifactId>dawn</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dawn-springboot</module>
+        <module>dawn-eureka-server</module>
+        <module>dawn-eureka-client-provider</module>
+    </modules>
 
 
 </project>
