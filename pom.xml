@@ -12,7 +12,7 @@
         <module>dawn-springboot</module>
         <module>dawn-eureka-server</module>
         <module>dawn-eureka-client-provider</module>
+        <module>dawn-eureka-client-consumer</module>
     </modules>
-
 
 </project>
