@@ -7,7 +7,7 @@ spring cloud micro service in action
 java -jar dawn-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1  
 java -jar dawn-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2
 
-### 1.2 browser eureka server
+### 1.2 browser eureka
 http://localhost:1111/  
 http://localhost:1112/
 
