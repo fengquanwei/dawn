@@ -18,7 +18,7 @@ public class ProviderController {
     private DiscoveryClient discoveryClient;
 
     @RequestMapping("/hello")
-    public String world() {
+    public String hello() {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
 
         System.out.println("host: " + serviceInstance.getHost());
