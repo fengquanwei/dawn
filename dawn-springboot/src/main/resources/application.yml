@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8081
+
+key:
+  name: fengquanwei
+  email: ${key.name}1996@163.com
