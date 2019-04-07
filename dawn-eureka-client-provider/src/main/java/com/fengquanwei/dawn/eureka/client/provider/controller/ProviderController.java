@@ -1,5 +1,7 @@
 package com.fengquanwei.dawn.eureka.client.provider.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class ProviderController {
+    private static final Logger logger = LoggerFactory.getLogger(ProviderController.class);
+
     @Autowired
     private DiscoveryClient discoveryClient;
 
@@ -21,8 +25,7 @@ public class ProviderController {
     public String hello() {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
 
-        System.out.println("host: " + serviceInstance.getHost());
-        System.out.println("serviceId: " + serviceInstance.getServiceId());
+        logger.info("hello, serviceId: {}, host: {}, port: {}", serviceInstance.getServiceId(), serviceInstance.getHost(), serviceInstance.getPort());
 
         return "hello world";
     }
