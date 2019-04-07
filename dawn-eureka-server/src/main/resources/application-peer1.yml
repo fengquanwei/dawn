@@ -9,5 +9,5 @@ eureka:
   instance:
     hostname: peer1
   client:
-    service-url:
+    serviceUrl:
           defaultZone: http://peer2:1112/eureka/
