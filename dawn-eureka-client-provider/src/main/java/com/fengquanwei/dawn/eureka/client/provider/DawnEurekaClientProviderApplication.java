@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient // 激活 DiscoveryClient
+@EnableDiscoveryClient // 启动服务治理客户端
 public class DawnEurekaClientProviderApplication {
 
     public static void main(String[] args) {

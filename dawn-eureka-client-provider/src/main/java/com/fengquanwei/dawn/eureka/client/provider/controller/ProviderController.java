@@ -8,6 +8,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 /**
  * 服务提供者
  *
@@ -23,10 +25,22 @@ public class ProviderController {
 
     @RequestMapping("/hello")
     public String hello() {
+        int time = new Random().nextInt(2000);
+
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            logger.error("sleep error", e);
+        }
+
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
 
-        logger.info("hello, serviceId: {}, host: {}, port: {}", serviceInstance.getServiceId(), serviceInstance.getHost(), serviceInstance.getPort());
+        String serviceId = serviceInstance.getServiceId();
+        String host = serviceInstance.getHost();
+        int port = serviceInstance.getPort();
 
-        return "hello world";
+        logger.info("hello, I'am {}:{}:{}, I have slept for {} mills", serviceId, host, port, time);
+
+        return "hello, I'am " + serviceId + ":" + host + ":" + port + ", I have slept for " + time + " mills";
     }
 }
